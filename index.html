@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mauricio Portillo - Resume</title>
     <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     <style>
         body {
@@ -71,10 +72,36 @@
             margin-right: 0.5rem;
             color: #60a5fa; /* Tailwind blue-400 */
         }
+
+        /* PDF-specific styles */
+        @media print {
+            body {
+                background-color: white;
+            }
+            .card {
+                box-shadow: none;
+                page-break-inside: avoid;
+            }
+            .experience-item {
+                page-break-inside: avoid;
+            }
+            .page-break {
+                page-break-before: always;
+            }
+        }
     </style>
 </head>
 <body class="antialiased text-gray-800">
     <div class="container mx-auto max-w-6xl p-4 sm:p-8">
+        <!-- Botón de descarga PDF -->
+        <div class="flex justify-end mb-4">
+            <button id="downloadBtn" class="bg-blue-600 hover:bg-blue-700 text-white font-semibold py-3 px-6 rounded-lg shadow-lg transition duration-300 ease-in-out transform hover:scale-105 flex items-center">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+                </svg>
+                Descargar en PDF
+            </button>
+        </div>
         <div class="md:flex md:space-x-8">
             <aside class="md:w-1/3 mb-8 md:mb-0">
                 <div class="sticky top-8">
@@ -151,16 +178,16 @@
                 <section id="profile" class="card">
                     <h2 class="section-title">PROFILE</h2>
                     <p class="text-gray-700 leading-relaxed">
-                        Mobile and full-stack developer with over 4 years of experience delivering high-impact applications for fintech, healthcare, and logistics sectors. Skilled in Flutter and Dart with hands-on experience across full development cycles — from prototyping to production. Passionate about building user-centered solutions, optimizing performance, and collaborating in cross-functional teams.
+                        Mobile and full-stack developer with over 5 years of experience delivering high-impact applications for fintech, healthcare, and logistics sectors. Skilled in Flutter and Dart with hands-on experience across full development cycles — from prototyping to production. Passionate about building user-centered solutions, optimizing performance, and collaborating in cross-functional teams.
                     </p>
                 </section>
 
                 <section id="experience" class="card">
                     <h2 class="section-title">EXPERIENCE</h2>
-                    <div class="space-y-6">
+                    <div class="space-y-4">
                         <div class="experience-item">
                             <h3 class="text-xl font-semibold text-blue-700">Flutter Full-Stack Developer</h3>
-                            <p class="text-md font-medium text-gray-600">Tookane — 2024 – Present</p>
+                            <p class="text-md font-medium text-gray-600"><b>Tookane</b> (Valencia, Spain) 2024 Jan / 2026 Jan</p>
                             <ul class="list-disc list-inside mt-2 text-gray-700 space-y-1 pl-4">
                                 <li>Developed and optimized logistics app features used by over 10,000 active delivery agents across Spain, Portugal, France, and the UK.</li>
                                 <li>Implemented real-time delivery tracking, navigation improvements, and QR code scanning to streamline delivery workflows.</li>
@@ -168,8 +195,8 @@
                             </ul>
                         </div>
                         <div class="experience-item">
-                            <h3 class="text-xl font-semibold text-blue-700">Flutter Developer</h3>
-                            <p class="text-md font-medium text-gray-600">ITR — 2023 – 2024</p>
+                            <h3 class="text-xl font-semibold text-blue-700">Flutter Tech Lead</h3>
+                            <p class="text-md font-medium text-gray-600"><b>ITR</b> (Buenos Aires, Argentina) 2022 Dec / 2023 Dec</p>
                             <ul class="list-disc list-inside mt-2 text-gray-700 space-y-1 pl-4">
                                 <li>Migrated a legacy Windows Phone app (built in C#) to a modern Flutter-based Android solution for internal logistics operations.</li>
                                 <li>Integrated Zebra enterprise hardware, including physical keyboard support through custom input listeners.</li>
@@ -177,16 +204,17 @@
                             </ul>
                         </div>
                         <div class="experience-item">
-                            <h3 class="text-xl font-semibold text-blue-700">Flutter Developer</h3>
-                            <p class="text-md font-medium text-gray-600">Valkimia — 2021 – 2023</p>
+                            <h3 class="text-xl font-semibold text-blue-700">Flutter Tech Lead</h3>
+                            <p class="text-md font-medium text-gray-600"><b>Valkimia</b> (Buenos Aires, Argentina) 2020 Dec / 2022 Dec</p>
                             <ul class="list-disc list-inside mt-2 text-gray-700 space-y-1 pl-4">
                                 <li>Built critical features for a mobile wallet used by over 300,000 users, including QR payment support, prepaid Visa card onboarding, and UI/UX redesigns for home and transfer flows.</li>
                                 <li>Developed a cross-platform Flutter app (mobile & web) from scratch for managing health coverage, used by over 1.5 million users.</li>
                                 <li>Applied BLoC architecture to create scalable and maintainable code across platforms.</li>
                             </ul>
                         </div>
-                        <div> <h3 class="text-xl font-semibold text-blue-700">Flutter Developer (Freelance)</h3>
-                            <p class="text-md font-medium text-gray-600">2020</p>
+                        <div class="experience-item">
+                            <h3 class="text-xl font-semibold text-blue-700">Flutter Developer</h3>
+                            <p class="text-md font-medium text-gray-600">Freelance (Cordoba, Argentina) 2020 Mar / 2020 Sep</p>
                             <ul class="list-disc list-inside mt-2 text-gray-700 space-y-1 pl-4">
                                 <li>Developed a custom food delivery app prototype inspired by the “PedidosYa” experience for a local fast-food chain.</li>
                                 <li>Handled UI design, navigation, and state management independently.</li>
@@ -207,5 +235,172 @@
             </main>
         </div>
     </div>
+
+    <script>
+        document.getElementById('downloadBtn').addEventListener('click', function() {
+            // Hide the button temporarily during PDF generation
+            const button = document.getElementById('downloadBtn');
+            const buttonContainer = button.parentElement;
+            buttonContainer.style.display = 'none';
+            
+            // Create minimal PDF version
+            const pdfContent = createMinimalPDFVersion();
+            
+            // Hide original container
+            const originalContainer = document.querySelector('.container');
+            originalContainer.style.display = 'none';
+            
+            // Add PDF content visibly to the page
+            pdfContent.style.width = '210mm';
+            pdfContent.style.margin = '0 auto';
+            document.body.appendChild(pdfContent);
+            
+            // Wait for render and generate PDF
+            setTimeout(() => {
+                const opt = {
+                    margin: [12, 12, 12, 12],
+                    filename: 'Mauricio_Portillo_CV.pdf',
+                    image: { type: 'jpeg', quality: 0.98 },
+                    html2canvas: { 
+                        scale: 2,
+                        useCORS: true,
+                        letterRendering: true,
+                        logging: true
+                    },
+                    jsPDF: { 
+                        unit: 'mm', 
+                        format: 'a4', 
+                        orientation: 'portrait'
+                    },
+                    pagebreak: { 
+                        mode: ['avoid-all', 'css'],
+                        avoid: '.pdf-section'
+                    }
+                };
+                
+                // Generate PDF
+                html2pdf().set(opt).from(pdfContent).save().then(() => {
+                    document.body.removeChild(pdfContent);
+                    originalContainer.style.display = 'block';
+                    buttonContainer.style.display = 'flex';
+                }).catch(error => {
+                    console.error('Error generating PDF:', error);
+                    if (document.body.contains(pdfContent)) {
+                        document.body.removeChild(pdfContent);
+                    }
+                    originalContainer.style.display = 'block';
+                    buttonContainer.style.display = 'flex';
+                });
+            }, 100);
+        });
+
+        function createMinimalPDFVersion() {
+            const container = document.createElement('div');
+            container.style.cssText = `
+                font-family: 'Inter', Arial, sans-serif;
+                background: white;
+                color: #000;
+                padding: 15px 25px;
+                line-height: 1.4;
+                max-width: 675px;
+                box-sizing: border-box;
+            `;
+            
+            container.innerHTML = `
+                <div style="text-align: center; margin: 0 auto 18px auto; border-bottom: 2px solid #000; padding-bottom: 12px;">
+                    <h1 style="margin: 0 auto; font-size: 28px; font-weight: 700; color: #000; text-align: center;">MAURICIO PORTILLO</h1>
+                    <h2 style="margin: 5px auto 8px auto; font-size: 15px; font-weight: 500; color: #333; text-align: center;">Flutter & Full-Stack Developer</h2>
+                    <div style="font-size: 10px; color: #333; line-height: 1.5; text-align: center;">
+                        +54 9 351 6861565 | maujpok@gmail.com | Córdoba, Argentina | Spanish: Native | English: B2
+                    </div>
+                </div>
+
+                <div class="pdf-section" style="margin-bottom: 13px;">
+                    <h3 style="font-size: 13px; font-weight: 700; margin: 0 0 7px 0; padding-bottom: 3px; border-bottom: 1.5px solid #000; text-transform: uppercase;">PROFILE</h3>
+                    <p style="margin: 0; font-size: 10.5px; color: #000; text-align: justify; line-height: 1.5;">
+                        Mobile and full-stack developer with over 5 years of experience delivering high-impact applications for fintech, healthcare, and logistics sectors. Skilled in Flutter and Dart with hands-on experience across full development cycles — from prototyping to production. Passionate about building user-centered solutions, optimizing performance, and collaborating in cross-functional teams.
+                    </p>
+                </div>
+
+                <div class="pdf-section" style="margin-bottom: 13px;">
+                    <h3 style="font-size: 13px; font-weight: 700; margin: 0 0 7px 0; padding-bottom: 3px; border-bottom: 1.5px solid #000; text-transform: uppercase;">TECHNICAL SKILLS</h3>
+                    <div style="font-size: 10.5px; color: #000; line-height: 1.5;">
+                        <p style="margin: 2px 0;"><strong>Frontend:</strong> Flutter, Dart, Vue.js</p>
+                        <p style="margin: 2px 0;"><strong>Backend:</strong> Node.js, REST APIs, MongoDB</p>
+                        <p style="margin: 2px 0;"><strong>Cloud & DevOps:</strong> AWS Lambda</p>
+                        <p style="margin: 2px 0;"><strong>Architecture & Tools:</strong> BLoC, Git, CI/CD, Zebra SDK</p>
+                        <p style="margin: 2px 0;"><strong>Soft Skills:</strong> Problem-solving, Proactive, Collaboration, UX/UI oriented</p>
+                    </div>
+                </div>
+
+                <div class="pdf-section" style="margin-bottom: 13px;">
+                    <h3 style="font-size: 13px; font-weight: 700; margin: 0 0 7px 0; padding-bottom: 3px; border-bottom: 1.5px solid #000; text-transform: uppercase;">PROFESSIONAL EXPERIENCE</h3>
+                    
+                    <div style="margin-bottom: 11px;">
+                        <div style="display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 2px;">
+                            <h4 style="margin: 0; font-size: 11.5px; font-weight: 700; color: #000; flex: 1; padding-right: 10px;">Flutter Full-Stack Developer | Tookane</h4>
+                            <span style="font-size: 9.5px; color: #333; white-space: nowrap; flex-shrink: 0;">2024 Jan - 2026 Jan</span>
+                        </div>
+                        <p style="margin: 1px 0 3px 0; font-size: 9.5px; color: #333; font-style: italic;">Valencia, Spain</p>
+                        <ul style="margin: 0; padding-left: 15px; font-size: 10.5px; color: #000; line-height: 1.5;">
+                            <li style="margin-bottom: 2px;">Developed and optimized logistics app features used by over 10,000 active delivery agents across Spain, Portugal, France, and the UK.</li>
+                            <li style="margin-bottom: 2px;">Implemented real-time delivery tracking, navigation improvements, and QR code scanning to streamline delivery workflows.</li>
+                            <li style="margin-bottom: 2px;">Collaborated on a CRM web platform using Vue.js, Node.js, MongoDB, and AWS Lambda, supporting internal operations of 50+ logistics companies.</li>
+                        </ul>
+                    </div>
+
+                    <div style="margin-bottom: 11px;">
+                        <div style="display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 2px;">
+                            <h4 style="margin: 0; font-size: 11.5px; font-weight: 700; color: #000; flex: 1; padding-right: 10px;">Flutter Tech Lead | ITR</h4>
+                            <span style="font-size: 9.5px; color: #333; white-space: nowrap; flex-shrink: 0;">2022 Dec - 2023 Dec</span>
+                        </div>
+                        <p style="margin: 1px 0 3px 0; font-size: 9.5px; color: #333; font-style: italic;">Buenos Aires, Argentina</p>
+                        <ul style="margin: 0; padding-left: 15px; font-size: 10.5px; color: #000; line-height: 1.5;">
+                            <li style="margin-bottom: 2px;">Migrated a legacy Windows Phone app (built in C#) to a modern Flutter-based Android solution for internal logistics operations.</li>
+                            <li style="margin-bottom: 2px;">Integrated Zebra enterprise hardware, including physical keyboard support through custom input listeners.</li>
+                            <li style="margin-bottom: 2px;">Developed a robust IT environment setup module, enhancing deployment efficiency for on-site technical teams.</li>
+                        </ul>
+                    </div>
+
+                    <div style="margin-bottom: 11px; page-break-inside: avoid;">
+                        <div style="display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 2px;">
+                            <h4 style="margin: 0; font-size: 11.5px; font-weight: 700; color: #000; flex: 1; padding-right: 10px;">Flutter Tech Lead | Valkimia</h4>
+                            <span style="font-size: 9.5px; color: #333; white-space: nowrap; flex-shrink: 0;">2020 Dec - 2022 Dec</span>
+                        </div>
+                        <p style="margin: 1px 0 3px 0; font-size: 9.5px; color: #333; font-style: italic;">Buenos Aires, Argentina</p>
+                        <ul style="margin: 0; padding-left: 15px; font-size: 10.5px; color: #000; line-height: 1.5;">
+                            <li style="margin-bottom: 2px;">Built critical features for a mobile wallet used by over 300,000 users, including QR payment support, prepaid Visa card onboarding, and UI/UX redesigns for home and transfer flows.</li>
+                            <li style="margin-bottom: 2px;">Developed a cross-platform Flutter app (mobile & web) from scratch for managing health coverage, used by over 1.5 million users.</li>
+                            <li style="margin-bottom: 2px;">Applied BLoC architecture to create scalable and maintainable code across platforms.</li>
+                        </ul>
+                    </div>
+
+                    <div style="margin-bottom: 11px; page-break-inside: avoid;">
+                        <div style="display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 2px;">
+                            <h4 style="margin: 0; font-size: 11.5px; font-weight: 700; color: #000; flex: 1; padding-right: 10px;">Flutter Developer | Freelance</h4>
+                            <span style="font-size: 9.5px; color: #333; white-space: nowrap; flex-shrink: 0;">2020 Mar - 2020 Sep</span>
+                        </div>
+                        <p style="margin: 1px 0 3px 0; font-size: 9.5px; color: #333; font-style: italic;">Córdoba, Argentina</p>
+                        <ul style="margin: 0; padding-left: 15px; font-size: 10.5px; color: #000; line-height: 1.5;">
+                            <li style="margin-bottom: 2px;">Developed a custom food delivery app prototype inspired by the "PedidosYa" experience for a local fast-food chain.</li>
+                            <li style="margin-bottom: 2px;">Handled UI design, navigation, and state management independently.</li>
+                            <li style="margin-bottom: 2px;">Demonstrated initiative in applying commercial app patterns without external funding or compensation.</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="pdf-section" style="margin-bottom: 0; page-break-inside: avoid;">
+                    <h3 style="font-size: 13px; font-weight: 700; margin: 0 0 7px 0; padding-bottom: 3px; border-bottom: 1.5px solid #000; text-transform: uppercase;">EDUCATION</h3>
+                    <div>
+                        <h4 style="margin: 0; font-size: 11.5px; font-weight: 700; color: #000;">Systems Engineering</h4>
+                        <p style="margin: 1px 0; font-size: 10.5px; color: #333;">Universidad Técnica Nacional, Argentina — 2012</p>
+                        <p style="margin: 1px 0; font-size: 10.5px; color: #000;">Completed two years of studies. Had to pause for financial reasons.</p>
+                    </div>
+                </div>
+            `;
+            
+            return container;
+        }
+    </script>
 </body>
 </html>
