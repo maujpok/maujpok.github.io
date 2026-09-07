@@ -1,0 +1,141 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>flight-hunter — el vuelo obvio no siempre es el correcto</title>
+    <meta
+      name="description"
+      content="Un buscador de oportunidades de vuelo: te dice cuándo comprar el directo obvio es un error y cuánto cuesta ese error, con el costo total real."
+    />
+
+    <!-- ===================================================================
+         PEGAR ACÁ EL SNIPPET DE TRAVELPAYOUTS DRIVE
+
+         En el asistente de Travelpayouts, pantalla "Install Drive manually",
+         apretá el botón de copiar y pegá el bloque <script> completo justo
+         debajo de esta línea. Después: commit, push, y esperá el deploy de
+         GitHub Pages (~1 min).
+
+         Comprobá que quedó sirviéndose antes de apretar el botón del
+         asistente:
+
+             curl -sS https://maujpok.github.io/travelers/ | grep -c emrldtp
+
+         Tiene que dar un número mayor que 0.
+
+         El snippet es distinto por cuenta: el que copies de TU panel es el
+         único que va a verificar.
+         =================================================================== -->
+
+    <style>
+      :root {
+        color-scheme: light dark;
+        --bg: #fbfaf8;
+        --fg: #1a1a1a;
+        --muted: #5a5a5a;
+        --line: #e4e1dc;
+      }
+      @media (prefers-color-scheme: dark) {
+        :root {
+          --bg: #16171a;
+          --fg: #ececec;
+          --muted: #9a9a9a;
+          --line: #2c2e33;
+        }
+      }
+      * {
+        box-sizing: border-box;
+      }
+      body {
+        margin: 0;
+        background: var(--bg);
+        color: var(--fg);
+        font:
+          16px/1.65 system-ui,
+          -apple-system,
+          "Segoe UI",
+          sans-serif;
+        display: grid;
+        place-items: center;
+        min-height: 100vh;
+        padding: 2rem 1.5rem;
+      }
+      main {
+        max-width: 36rem;
+      }
+      h1 {
+        font-size: clamp(1.6rem, 5vw, 2.1rem);
+        line-height: 1.15;
+        letter-spacing: -0.02em;
+        margin: 0 0 1rem;
+      }
+      p {
+        margin: 0 0 1rem;
+        color: var(--muted);
+      }
+      strong {
+        color: var(--fg);
+        font-weight: 600;
+      }
+      ul {
+        margin: 0 0 1rem;
+        padding-left: 1.15rem;
+        color: var(--muted);
+      }
+      li {
+        margin-bottom: 0.4rem;
+      }
+      hr {
+        border: 0;
+        border-top: 1px solid var(--line);
+        margin: 2rem 0 1.25rem;
+      }
+      .small {
+        font-size: 0.875rem;
+      }
+    </style>
+  </head>
+  <body>
+    <main>
+      <h1>El vuelo obvio no siempre es el correcto</h1>
+
+      <p>
+        <strong>flight-hunter</strong> es un buscador de <strong>oportunidades</strong> de vuelo. No
+        vende ni emite pasajes: te dice cuándo comprar el directo obvio es un error, y cuánto cuesta
+        ese error.
+      </p>
+
+      <p>
+        La diferencia está en qué se compara. No la tarifa contra la tarifa, sino el
+        <strong>costo total real</strong>: tarifas, tasas de salida, traslados terrestres, noches de
+        hotel forzadas, re-despacho de equipaje y el costo esperado de que algo falle, todo en
+        dinero.
+      </p>
+
+      <p>Cuatro cosas que mira:</p>
+      <ul>
+        <li>
+          <strong>Salir de otro aeropuerto.</strong> A veces el país desde el que despega el avión
+          cambia el precio más que la ruta.
+        </li>
+        <li>
+          <strong>Llegar a otro aeropuerto</strong> y cerrar los últimos kilómetros por tierra.
+        </li>
+        <li>
+          <strong>Escalas prolongadas oficiales.</strong> Varias aerolíneas dejan parar días en su
+          hub sin costo extra de tarifa, y es un solo boleto.
+        </li>
+        <li><strong>Ida y vuelta por separado</strong>, corriendo la fecha dentro de tu ventana.</li>
+      </ul>
+
+      <p>Si el ahorro no compensa el trabajo extra, también te lo dice.</p>
+
+      <hr />
+      <p class="small">
+        En construcción · sitio de referencia del proyecto ·
+        <a href="https://github.com/maujpok/travelers" style="color: inherit">repositorio</a>
+      </p>
+    </main>
+  </body>
+</html>
