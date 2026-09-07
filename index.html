@@ -10,23 +10,39 @@
     />
 
     <!-- ===================================================================
-         PEGAR ACÁ EL SNIPPET DE TRAVELPAYOUTS DRIVE
+         SNIPPET DE TRAVELPAYOUTS DRIVE
 
-         En el asistente de Travelpayouts, pantalla "Install Drive manually",
-         apretá el botón de copiar y pegá el bloque <script> completo justo
-         debajo de esta línea. Después: commit, push, y esperá el deploy de
-         GitHub Pages (~1 min).
+         Copiado tal cual del asistente ("Install Drive manually") de la
+         cuenta de afiliado. Es lo que este repo viene a hospedar: sin este
+         script sirviéndose desde acá, Travelpayouts no libera el token de su
+         Data API. El detalle está en el README.
 
-         Comprobá que quedó sirviéndose antes de apretar el botón del
-         asistente:
+         El ID (NTcxMzgz / t=571383) identifica la cuenta: si algún día se
+         cambia de cuenta, hay que reemplazarlo por el nuevo.
 
-             curl -sS https://maujpok.github.io/travelers/ | grep -c emrldtp
+         Para comprobar que quedó sirviéndose:
+
+             curl -sS https://maujpok.github.io/travelers/ | grep -c emrld.ltd
 
          Tiene que dar un número mayor que 0.
-
-         El snippet es distinto por cuenta: el que copies de TU panel es el
-         único que va a verificar.
          =================================================================== -->
+    <script
+      nowprocket
+      data-noptimize="1"
+      data-cfasync="false"
+      data-wpfc-render="false"
+      seraph-accel-crit="1"
+      data-no-defer="1"
+      data-cmp-ab="2"
+    >
+      (function () {
+        var script = document.createElement("script");
+        script.async = 1;
+        script.setAttribute("data-cmp-ab", "2");
+        script.src = 'https://emrld.ltd/NTcxMzgz.js?t=571383';
+        document.head.appendChild(script);
+      })();
+    </script>
 
     <style>
       :root {

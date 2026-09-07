@@ -33,7 +33,7 @@ Así que el tag va acá.
 4. Comprobar que quedó sirviéndose:
 
    ```bash
-   curl -sS https://maujpok.github.io/travelers/ | grep -c emrldtp   # > 0
+   curl -sS https://maujpok.github.io/travelers/ | grep -c emrld.ltd   # > 0
    ```
 
 5. Volver al asistente y apretar **«Check Drive connection»**.
